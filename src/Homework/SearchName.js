@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
+import Form from 'react-bootstrap/Form';
+import FormControl from 'react-bootstrap/FormControl';
+import Button from 'react-bootstrap/Button';
+
 //功能:輸入搜尋文字使用
 const SearchName = () => {
     const navigate = useNavigate();
@@ -35,11 +39,13 @@ const SearchName = () => {
 
     return (
         <div>
-
-            <input type="text" onBlur={changeSearchGoodsName} placeholder='搜尋商品名稱'/>
-            <button onClick={clickSearchName}>搜尋</button>
-            <br/>
-            {/* 測試中:{searchName} */}
+            <FormControl
+            type="text" placeholder="搜尋商品名稱" 
+            onBlur={changeSearchGoodsName} // 使用 onBlur 避免頻繁被觸發
+            style={{ marginRight: '10px'}} // 添加右侧外边距   
+            />
+            <Button variant="outline-secondary" onClick={clickSearchName}>搜尋</Button>
+           
         </div>
     )
 }

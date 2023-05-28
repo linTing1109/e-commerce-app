@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
-
-// const apiUrl = 'http://localhost:8090/ecommerce/BackendController/queryGoodsSales';
+//後端商品訂單查詢
 const apiUrl = 'http://localhost:8090/training/ecommerce/BackendController/queryGoodsSales';
 
 class SalesReportSetState extends Component {

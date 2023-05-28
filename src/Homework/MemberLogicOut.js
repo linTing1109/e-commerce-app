@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import ClearCarGoods from './ClearCarGoods';
+import Button from 'react-bootstrap/Button';
 
 //會員登出api
 const apiMemberOutUrl = 'http://localhost:8090/training/ecommerce/MemberController/logout';
@@ -30,13 +30,14 @@ const MemberLogicOut = () => {
     
     
     const clickMemberLogicOut = ()  => {
+        localStorage.removeItem('memberData');
         fetchList(); //登出會員
         fetchList2(); //清空購物車
     }
  
   return (
     <div>
-      <button onClick={clickMemberLogicOut}>登出</button>
+       <Button variant="outline-danger" onClick={clickMemberLogicOut}>登出</Button>
     </div>
   )
 }

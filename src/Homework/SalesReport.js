@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 
+// 商品訂單查詢api
 const apiUrl = 'http://localhost:8090/ecommerce/BackendController/queryGoodsSales';
 
 
@@ -13,8 +14,8 @@ class SalesReport extends Component {
             .then(rs => rs.data)
             .catch(error => { console.log(error); });
         
-        console.log("goodsReportSalesList:", reportData.goodsReportSalesList);
-        console.log("genericPageable:", reportData.genericPageable);
+        // console.log("goodsReportSalesList:", reportData.goodsReportSalesList);
+        // console.log("genericPageable:", reportData.genericPageable);
 
     };
 
