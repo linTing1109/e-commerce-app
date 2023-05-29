@@ -102,7 +102,7 @@ const SalesReportMember = ({ carCount, updateCarCount }) => {
         }));
     }
 
-    // // 變更startDate(並且起始必須早於結束)
+    // 變更startDate(並且起始必須早於結束)
     const changeStartDate = (event) => {
         const newStartDate = event.target.value;
         if (newStartDate <= endDate) {
@@ -118,7 +118,11 @@ const SalesReportMember = ({ carCount, updateCarCount }) => {
                 isStartDateValid: false
             }));
         }
+        console.log("newStartDate",newStartDate);
+        console.log("startDate",startDate);
     };
+      
+
     // 變更endDate (並且結束比需晚於起始)
     const changeEndDate = (event) => {
         const newEndDate = event.target.value;
@@ -135,6 +139,7 @@ const SalesReportMember = ({ carCount, updateCarCount }) => {
                 isEndDateValid: false
             }));
         }
+        console.log("endDate",endDate);
     };
 
     // 最首頁點擊
@@ -215,6 +220,7 @@ const SalesReportMember = ({ carCount, updateCarCount }) => {
         const imagePicAll = picAll; // 原圖
         setData(e => ({
             ...e,//hooks無法部分更新,加...e為保持原先欄位
+            currentPageNo:1,
             sort: newSort,
             // 傳給後端的值:因為後端訂單編號的順序跟日期順序是一樣的 沒有額外寫date排序
             orderByItem: even.target.name === 'orderDate' ? 'orderID' : even.target.name,
@@ -380,15 +386,16 @@ const SalesReportMember = ({ carCount, updateCarCount }) => {
                 <Button variant="outline-primary" onClick={changeCalThree}>近三月訂單</Button>{' '}
                 <Button variant="outline-primary" onClick={changeCalSix}>近半年訂單</Button>{' '}
                 <Button variant="outline-primary" onClick={changeCalYear}>近一年訂單</Button>{' '}
-
+                <br/><br/> <p class="text-dark">起始日期:{startDate}~結束日期:{endDate}</p>
+              
                 <Form noValidate validated={validated} onSubmit={handleSubmit}>
                     <Row>
-                        <Col xs={3}>
+                        {/* <Col xs={3}>
                             <Form.Group controlId="startDate">
                                 <Form.Label>查詢日期起：</Form.Label>
                                 <FormControl
                                     type="date" required
-                                    value={startDate}
+                                    // value={startDate}
                                     onChange={changeStartDate}
                                     isInvalid={!isStartDateValid} // 根據狀態設置 isInvalid 屬性
                                 />
@@ -400,13 +407,13 @@ const SalesReportMember = ({ carCount, updateCarCount }) => {
                                 <Form.Label>查詢日期迄：</Form.Label>
                                 <FormControl
                                     type="date" required
-                                    value={endDate}
+                                    // value={endDate}
                                     onChange={changeEndDate}
                                     isInvalid={!isEndDateValid} // 根據狀態設置 isInvalid 屬性
                                 />
                                 <Form.Control.Feedback type="invalid">欄位錯誤!必填 且 結束必須晚於起始</Form.Control.Feedback>
                             </Form.Group>
-                        </Col>
+                        </Col> */}
                     </Row>
 
                     <Row>

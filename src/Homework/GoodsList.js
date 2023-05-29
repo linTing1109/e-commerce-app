@@ -205,6 +205,7 @@ class GoodsList extends Component {
 
         this.setState({
             sort: newSort,
+            currentPageNo:1,
             orderByItem: orderByItem, // 將排序條件更換 (這樣畫面值才會更新到)
             imagePicGoodID: orderByItem === 'goodsID' ? imageValue : imagePicAll,
             imagePicGoodName: orderByItem === 'goodsName' ? imageValue : imagePicAll,
