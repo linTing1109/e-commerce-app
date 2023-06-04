@@ -11,8 +11,6 @@ const apiUrl = 'http://localhost:8090/training/ecommerce/FrontendController/chec
 // 清空購物車 api
 const apiClearCarUrl = 'http://localhost:8090/training/ecommerce/MemberController/clearCartGoods';
 
-
-
 // 功能:結帳購物車頁面
 const CheckOutGoods = ({ carCount, updateCarCount }) => {
   const navigate = useNavigate();

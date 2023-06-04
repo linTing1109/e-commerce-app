@@ -19,8 +19,7 @@ import MemberAdd from './MemberAdd';// 新增登出
 import SalesReportMember from './SalesReportMember';
 import GoodsSalesReport from './GoodsSalesReport';
 import SellWellGoods from './SellWellGoods';
-
-
+import CustomerServiceMail from './CustomerServiceMail';//客服信箱
 
 import { Container, Row, Col } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
@@ -29,7 +28,7 @@ import Button from 'react-bootstrap/Button';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-
+import emailIcon from './pic/email.png';
 
 //api 購物網-會員-檢查登入 
 const apiUrlcheckLogin = 'http://localhost:8090/training/ecommerce/MemberController/checkLogin';
@@ -138,11 +137,6 @@ const EcommerceRouterDom = () => {
   return (
     <Container>
       <BrowserRouter>
-        {/* 測試:{memberDataID} */}
-        {/* 測試:{memberData} */}
-        {/* 測試:{carCount } {isLogin.toString()} */}
-        {/* 我是測試{idNo}{isLogin ? 'true' : 'false'} */}
-
 
         <Navbar bg="dark" variant={"dark"} expand="lg">
           <Navbar.Brand href="/"><h1>E-commerce</h1>{cusName && <Fragment>{cusName} 先生/小姐您好!</Fragment>}</Navbar.Brand>
@@ -157,7 +151,7 @@ const EcommerceRouterDom = () => {
               {isLogin && <>
                 <Nav.Link as={Link} to="/SearchGoods">購物專區</Nav.Link>
                 <Nav.Link as={Link} to="/SellWellGoods">熱銷商品</Nav.Link>
-                <Nav.Link as={Link} to="/QueryCarGoods">購物車</Nav.Link>
+                {/* <Nav.Link as={Link} to="/QueryCarGoods">購物車</Nav.Link> */}
                 <Nav.Link as={Link} to="/SalesReportMember">個人訂單</Nav.Link>
                 <NavDropdown title="後臺" id="basic-nav-dropdown">
                   <NavDropdown.Item as={Link} to="/GoodsCreate">商品新增</NavDropdown.Item>
@@ -179,7 +173,12 @@ const EcommerceRouterDom = () => {
                     <Button variant="outline-primary" className="d-flex align-items-center">購物車 {queryGoodsData.length}</Button>) : (
                     <Button variant="outline-secondary">購物車</Button>)}
                 </Nav.Link>
+                
                 <MemberLogicOut />
+                
+                <Link to="/CustomerServiceMail" > 
+                  <img src={emailIcon} style={{ width: '30px', height: '35px' }} />
+                </Link>     
               </>}
             </Form>
           </Navbar.Collapse>
@@ -233,6 +232,10 @@ const EcommerceRouterDom = () => {
 
           <Route path="/GoodsSalesReport"
             element={isLogin ? (<GoodsSalesReport />) : (
+              <MemberLogic />)} />
+
+          <Route path="/CustomerServiceMail"
+            element={isLogin ? (<CustomerServiceMail />) : (
               <MemberLogic />)} />
 
           <Route path="/SellWellGoods"

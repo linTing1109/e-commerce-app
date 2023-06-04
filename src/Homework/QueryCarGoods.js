@@ -407,16 +407,7 @@ const QueryCarGoods = ({ carCount, updateCarCount }) => {
                             </Row>
                         </Form>
                         <hr />
-                        {/* 這邊只是測試使用:<br/>
-
-                    cusName:{cusName}<br/>
-                    homeNumber:{homeNumber}<br/>
-                    mobileNumber:{mobileNumber}<br/>
-                    orderAddr:{orderAddr}<br/>
-
-                    creditCard:{creditCard}<br/>
-                    effectiveDate: {effectiveDate}<br/>
-                    lastNumber:{lastNumber}<br/> */}
+                      
                         {/*                                  
                     新增內容為:<pre>{JSON.stringify(customer, null, 2)}</pre>           
                     新增內容為:<pre>{JSON.stringify(orderGoodsList, null, 2)}</pre>         */}

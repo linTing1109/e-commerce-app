@@ -107,6 +107,9 @@ class GoodsList extends Component {
                 currentPageNo: 1  //重新按查詢會從第一頁開始顯示
             })
             this.fetchList();
+            this.setState({
+                validated: false
+            })
         }
     }
 
@@ -215,6 +218,31 @@ class GoodsList extends Component {
         });
     }
 
+    handlePrintPDF = async () => {
+        await axios({
+            url: 'http://localhost:8090/training/ecommerce/BackendController/jasperPdfExport', //your url
+            method: 'GET',
+            responseType: 'blob', // important
+        }).then((response) => {
+            // create file link in browser's memory
+            const href = URL.createObjectURL(response.data);
+            // create "a" HTML element with href to file & click
+            const link = document.createElement('a');
+            link.href = href;
+
+            //使用今天的日期當下載檔名 ex:table20230528.pdf
+            const today = new Date();
+            const formattedDate = today.getFullYear() + '' + (today.getMonth() + 1).toString().padStart(2, '0') + '' + today.getDate().toString().padStart(2, '0');
+
+            link.setAttribute('download', `GoodsList${formattedDate}.pdf`); //or any other extension
+            document.body.appendChild(link);
+            link.click();
+            // clean up "a" element & remove ObjectURL
+            document.body.removeChild(link);
+            URL.revokeObjectURL(href);
+        });
+    }
+
     render() {
         const { goodsID, goodsName, quantity, startPrice, endPrice, status, genericPageable, goodsDatas, currentPageNo, sort,
             imagePicGoodID, imagePicGoodName, imagePicGoodPrice, imagePicBuyQuantity, imagePicStatus, validated } = this.state;
@@ -301,6 +329,9 @@ class GoodsList extends Component {
 
                             <Col xs={3} className="align-self-center" style={{ marginTop: '15px' }}>
                                 <Button variant="outline-primary" type="submit">查詢</Button>
+                            </Col>
+                            <Col xs={3} className="align-self-center" style={{ marginTop: '15px' }}>
+                                <Button variant="outline-primary" onClick={this.handlePrintPDF}>下載全部商品</Button>
                             </Col>
                         </Row>
                     </Form>

@@ -330,24 +330,6 @@ class GoodsReplenishment extends Component {
                     </div>
                 ) : null}
 
-
-
-                {/* 利用三元判斷式 成功新增才秀出下面資訊 否則為空 */}
-                {/* { reviseReport.length !=0 ? 
-                    <div>
-                    商品編號:{goodsID}更新成功!<br/>
-                    修改後的內容為:<pre>{JSON.stringify(reviseReport, null, 2)}</pre>   
-                    </div>  :null
-                }         */}
-
-                {/* { reviseReport.length} */}
-                {/* 下面只是測試再用的<br/>
-                {goodsID}<br/>
-                
-                單一商品資訊:{goods}<br/>
-                庫存數量:{quantity}<br/> */}
-
-
             </div>
 
         );
