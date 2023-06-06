@@ -429,6 +429,8 @@ const QueryCarGoods = ({ carCount, updateCarCount }) => {
                                                     <option key={city}>{city}</option>
                                                 ))}
                                         </Form.Control>
+                                        <Form.Control.Feedback>欄位正確!</Form.Control.Feedback>
+                                        <Form.Control.Feedback type="invalid">欄位錯誤!</Form.Control.Feedback>
                                     </Form.Group>
                                   </Col>
                                   <Col xs={3}>  
