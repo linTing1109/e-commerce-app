@@ -396,8 +396,6 @@ const SalesReportHooks = () => {
         pagesIconSize:{pagesIconSize}<br/>
         sort:{sort}<br/>
         orderByItem:{orderByItem}<br/> */}
-            {/* imagePicOrderID:<img src={imagePicOrderID}></img><br/> */}
-            {/* {goodsReportSalesList} */}
         </div>
     )
 }

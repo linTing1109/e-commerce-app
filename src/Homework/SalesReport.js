@@ -8,15 +8,10 @@ const apiUrl = 'http://localhost:8090/ecommerce/BackendController/queryGoodsSale
 class SalesReport extends Component {
 
     onClickSearch = async () => {
-
         const params =  { "currentPageNo": 1, "pageDataSize": 5, "pagesIconSize": 5, "startDate": "2023-01-01", "endDate": "2023-05-01" };
         const reportData = await axios.get(apiUrl, { params })
             .then(rs => rs.data)
             .catch(error => { console.log(error); });
-        
-        // console.log("goodsReportSalesList:", reportData.goodsReportSalesList);
-        // console.log("genericPageable:", reportData.genericPageable);
-
     };
 
     render() {

@@ -9,16 +9,16 @@ import GoodsList from './GoodsList'; // 後臺商品頁面(使用:classComponent
 import SalesReportHooks from './SalesReportHooks';// 後臺全部訂單頁面(使用Hooks) --目前剩拉出頁碼來共用
 
 import SearchGoods from './SearchGoods';//秀出全部商品 與 使用關鍵字查詢 顯示符合的商品頁面
-import QueryCarGoods from './QueryCarGoods';
+import QueryCarGoods from './QueryCarGoods';//購物車頁面修改
 import MemberLogicOut from './MemberLogicOut';// 會員登出(同時也要清空購物車)
 import CheckOutGoods from './CheckOutGoods';  // 結帳購物車頁面
 import ClearCarGoods from './ClearCarGoods';  // 清空購物車
 import ErrorPage from './ErrorPage';// 錯誤頁面
 import SearchName from './SearchName';//搜尋輸入框(EcommerceRouterDom&SearchGoods使用)
-import MemberAdd from './MemberAdd';// 新增登出
-import SalesReportMember from './SalesReportMember';
-import GoodsSalesReport from './GoodsSalesReport';
-import SellWellGoods from './SellWellGoods';
+import MemberAdd from './MemberAdd';// 新增會員 (同時發送成功失敗信件)
+import SalesReportMember from './SalesReportMember';//個人訂單查詢
+import GoodsSalesReport from './GoodsSalesReport';//銷售報表
+import SellWellGoods from './SellWellGoods';//熱銷商品
 import CustomerServiceMail from './CustomerServiceMail';//客服信箱
 
 import { Container, Row, Col } from 'react-bootstrap';
